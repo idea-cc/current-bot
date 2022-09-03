@@ -27,13 +27,7 @@ class PurgeCommand : Extension() {
                 val target = (arguments.targetChannel ?: this.channel.asChannel()) as TextChannel
                 val intMessages = arguments.targetMessages
 
-                suspend fun uploadMessagestoHastebin() {
-                    try {
 
-                    } catch (e: Exception) {
-                        e
-                    }
-                }
             }
         }
     }
