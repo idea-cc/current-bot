@@ -49,7 +49,7 @@ class BotInfoCommand : Extension() {
                     }
                     components {
                         linkButton {
-                            label = "Source code"
+                            label = "Source Code"
                             url = "https://github.com/idea-cc/current-bot"
                         }
                     }

@@ -30,7 +30,7 @@ class GuildInfoCommand : Extension() {
                     embed {
                         title = "$targetGuild's Information"
                         field {
-                            name = "**Guild Owner**: **[<@$guildOwner>]**"
+                            name = "**Guild Owner**: **[**<@$guildOwner>**]**"
                         }
                         field {
                             name = "**Guild Member Amount**: **[$guildMemberAmount]**"
