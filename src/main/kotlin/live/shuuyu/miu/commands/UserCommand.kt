@@ -3,24 +3,20 @@ package live.shuuyu.miu.commands
 import com.kotlindiscord.kord.extensions.checks.anyGuild
 import com.kotlindiscord.kord.extensions.commands.Arguments
 import com.kotlindiscord.kord.extensions.commands.converters.impl.optionalUser
-import com.kotlindiscord.kord.extensions.commands.converters.impl.user
 import com.kotlindiscord.kord.extensions.extensions.Extension
 import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
-import com.kotlindiscord.kord.extensions.utils.createdAt
 import dev.kord.common.DiscordTimestampStyle
+import dev.kord.common.annotation.KordExperimental
 import dev.kord.common.entity.UserFlag
 import dev.kord.common.toMessageFormat
 import dev.kord.core.supplier.EntitySupplyStrategy
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
-import kotlin.time.ExperimentalTime
+import live.shuuyu.miu.utils.TranslationEmbed.tr
 
 class UserCommand : Extension() {
     override val name: String = "user"
-    @OptIn(ExperimentalTime::class)
     override suspend fun setup() {
         publicSlashCommand(::UserCommandArguments) {
             name = "user"
@@ -37,14 +33,10 @@ class UserCommand : Extension() {
 
                 respond {
                     embed {
-                        title = "${target.username}#${target.discriminator}'s Info"
-                        field {
-                            name = "**User Join Date**: **$userJoinDate**"
-                            inline = true
-                        }
-                        field {
-
-                        }
+                        title = "User Lookup"
+                        description = tr("userInfoCommand.embedBody", target.username, target.discriminator//, target.id,
+                            //userJoinDate, target.isBot
+                        )
                         timestamp = Clock.System.now()
                     }
                 }
