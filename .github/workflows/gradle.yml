@@ -32,9 +32,6 @@ jobs:
     - name: Grant Permission to Gradle to compile
       run: chmod +x gradlew
       
-    - name: Validate Gradle
-      run: gradle/wrapper-validation-action@v1
-      
     - name: Build with Gradle
       uses: gradle/gradle-build-action@8d2472536ed5e12cd8403b043e871b649399a208
       with:
