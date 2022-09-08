@@ -7,13 +7,12 @@ import com.kotlindiscord.kord.extensions.extensions.Extension
 import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
 import dev.kord.common.DiscordTimestampStyle
-import dev.kord.common.annotation.KordExperimental
 import dev.kord.common.entity.UserFlag
 import dev.kord.common.toMessageFormat
 import dev.kord.core.supplier.EntitySupplyStrategy
 import dev.kord.rest.builder.message.create.embed
 import kotlinx.datetime.Clock
-import live.shuuyu.miu.utils.TranslationEmbed.tr
+import live.shuuyu.miu.utils.tr
 
 class UserCommand : Extension() {
     override val name: String = "user"
@@ -28,21 +27,34 @@ class UserCommand : Extension() {
 
             action {
                 val target = arguments.userArgs ?: this.user.asUser()
+                val guild = guild!!
+                val targetMember = target.asMember(guild.id)
                 val userAvatar = user.withStrategy(EntitySupplyStrategy.rest).fetchUser().avatar
                 val userJoinDate = target.withStrategy(EntitySupplyStrategy.rest).id.timestamp.toMessageFormat(DiscordTimestampStyle.ShortDateTime)
 
                 respond {
                     embed {
-                        title = "User Lookup"
-                        description = tr("userInfoCommand.embedBody", target.username, target.discriminator//, target.id,
-                            //userJoinDate, target.isBot
-                        )
+                        title = "User Lookup: ${target.username}#${target.discriminator}"
+                        field {
+                            name = "User Information"
+                            value = "**User ID:** ${target.id} " +
+                                    "**User Join Date:** $userJoinDate " +
+                                    "**User Flags:** ${target.publicFlags?.flags?.joinToString(separator = " ") { getBadge(it) } ?: "" } "
+                        }
+                        field {
+                            name = "Guild Information"
+                            value = "**Member Join Date:** ${targetMember.withStrategy(EntitySupplyStrategy.rest).joinedAt.toMessageFormat(DiscordTimestampStyle.ShortDateTime)} " +
+                                    "**Member Nickname:** ${targetMember.withStrategy(EntitySupplyStrategy.rest).nickname} " +
+                                    "**Premium Status:** ${targetMember.withStrategy(EntitySupplyStrategy.rest).premiumSince?.toMessageFormat(DiscordTimestampStyle.ShortDateTime)} " +
+                                    "**Roles:** ${targetMember.withStrategy(EntitySupplyStrategy.rest).asMember().roles} "
+                        }
                         timestamp = Clock.System.now()
                     }
                 }
             }
         }
     }
+
     inner class UserCommandArguments : Arguments() {
         val userArgs by optionalUser {
             name = "user"

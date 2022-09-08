@@ -27,18 +27,15 @@ class BotInfoCommand : Extension() {
 
                 respond {
                     embed {
-                        title = "Miu information"
+                        title = "Miu Information"
                         field {
-                            name = "**OS Revision Version**: **[$osRevision]**"
-                            inline = true
+                            name = "Miu Libraries and Core Utilities"
+                            value = "**Java Version:** $javaVersion"
+                                    "**Operating System:** $osName " +
+                                    "**Operating System Version:** $osRevision"
                         }
                         field {
-                            name = "**Operating System**: **[$osName]**"
-                            inline = true
-                        }
-                        field {
-                            name = "**Current Java Version**: **[$javaVersion]**"
-                            inline = true
+
                         }
 
                         footer {

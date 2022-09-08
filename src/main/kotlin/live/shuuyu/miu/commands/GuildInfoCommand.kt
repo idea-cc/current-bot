@@ -4,9 +4,12 @@ import com.kotlindiscord.kord.extensions.checks.anyGuild
 import com.kotlindiscord.kord.extensions.extensions.Extension
 import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
 import com.kotlindiscord.kord.extensions.types.respond
+import dev.kord.common.DiscordTimestampStyle
+import dev.kord.common.toMessageFormat
 import dev.kord.core.entity.Guild
 import dev.kord.core.supplier.EntitySupplyStrategy
 import dev.kord.rest.builder.message.create.embed
+import kotlinx.datetime.Clock
 
 class GuildInfoCommand : Extension() {
     override val name: String = "guildinfo"
@@ -20,26 +23,27 @@ class GuildInfoCommand : Extension() {
             }
 
             action {
-                val targetGuild = this.guild?.asGuild()?.name
-                val guildMemberAmount = guild?.withStrategy(EntitySupplyStrategy.rest)?.fetchGuild()?.memberCount
-                val guildBoostLevel = guild?.withStrategy(EntitySupplyStrategy.rest)?.fetchGuild()?.premiumSubscriptionCount
-                val guildOwner = guild?.withStrategy(EntitySupplyStrategy.rest)?.fetchGuild()?.getOwner()?.id
+                val targetGuild = this.guild?.asGuild() as Guild
+                val guildMemberAmount = targetGuild.withStrategy(EntitySupplyStrategy.rest).fetchGuild().memberCount
+                val guildBoostLevel = targetGuild.withStrategy(EntitySupplyStrategy.rest).premiumSubscriptionCount
+                val guildOwner = targetGuild.withStrategy(EntitySupplyStrategy.rest).fetchGuild().ownerId
+                val guildCreationDate = targetGuild.withStrategy(EntitySupplyStrategy.rest).id.timestamp.toMessageFormat(DiscordTimestampStyle.ShortDateTime)
 
-                // TODO: Fix Member count and guild owner stuff because it doesm't collect stuff correctly
+                // TODO: Fix Member count and guild owner stuff because it doesn't collect stuff correctly
                 respond {
                     embed {
-                        title = "$targetGuild's Information"
+                        title = "Guild Information: ${targetGuild.name}"
                         field {
-                            name = "**Guild Owner**: **[**<@$guildOwner>**]**"
+                            name = "General Information:"
+                            value = "**Guild Creation Date:** $guildCreationDate" +
+                                    "**Guild Owner:** <@$guildOwner>" +
+                                    "**Server Boost Amount:** $guildBoostLevel" +
+                                    "**Guild Member Amount:** $guildMemberAmount"
                         }
                         field {
-                            name = "**Guild Member Amount**: **[$guildMemberAmount]**"
-                            inline = true
+                            name = "Roles:"
                         }
-                        field {
-                            name = "**Server Boost Amount**: **[$guildBoostLevel]**"
-                            inline = true
-                        }
+                        timestamp = Clock.System.now()
                     }
                 }
             }

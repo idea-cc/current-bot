@@ -55,6 +55,7 @@ class RoleExtension : Extension() {
     inner class RoleExtensionArguments: Arguments() {
 
     }
+
     inner class GiveRoleArguments: Arguments() {
         val targetGrantUser by user {
             name = "user"
