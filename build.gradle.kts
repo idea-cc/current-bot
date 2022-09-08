@@ -12,7 +12,6 @@ repositories {
     maven("https://maven.kotlindiscord.com/repository/maven-snapshots/")
     maven("https://maven.kotlindiscord.com/repository/maven-releases/")
     maven("https://maven.kotlindiscord.com/repository/maven-public/")
-    maven("https://schlaubi.jfrog.io/artifactory/lavakord")
     maven("https://jitpack.io")
     maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
