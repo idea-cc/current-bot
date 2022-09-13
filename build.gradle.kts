@@ -12,7 +12,6 @@ repositories {
     maven("https://maven.kotlindiscord.com/repository/maven-snapshots/")
     maven("https://maven.kotlindiscord.com/repository/maven-releases/")
     maven("https://maven.kotlindiscord.com/repository/maven-public/")
-    maven("https://schlaubi.jfrog.io/artifactory/lavakord")
     maven("https://jitpack.io")
     maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
@@ -22,7 +21,7 @@ val shadowMe: Configuration by configurations.creating {
 }
 
 dependencies {
-    shadowMe("ch.qos.logback:logback-classic:1.2.11")
+    shadowMe("ch.qos.logback:logback-classic:1.4.0")
     shadowMe("org.codehaus.groovy:groovy:3.0.12")
     shadowMe("com.kotlindiscord.kord.extensions:kord-extensions:1.5.5-SNAPSHOT")
     shadowMe("io.ktor:ktor-serialization-kotlinx-json-jvm:2.1.0")

@@ -1,2 +1,2 @@
 # current-bot
-Discord bot made in Kotlin using Kord
+I cook kimchi jjigae for people lol 
