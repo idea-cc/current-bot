@@ -15,6 +15,13 @@ dependencies {
     implementation(project(":bot:database"))
     implementation(project(":bot:phishing"))
 
+    implementation("ch.qos.logback:logback-classic:1.4.0")
+    implementation("org.codehaus.groovy:groovy:3.0.12")
+    implementation("org.postgresql:postgresql:42.5.0")
+    implementation("org.jetbrains.exposed:exposed-core:0.39.2")
+    implementation("org.jetbrains.exposed:exposed-kotlin-datetime:0.39.2")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.39.2")
+
     implementation(libs.bundles.kotlinLibs.bundle)
     implementation(libs.bundles.ktor.bundle)
     implementation(libs.bundles.kordLibs.bundle)
