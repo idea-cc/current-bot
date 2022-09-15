@@ -28,6 +28,7 @@ dependencyResolutionManagement {
             ktor()
             kotlinLibs()
             kordLibs()
+            databaseLibs()
         }
     }
 }
@@ -98,4 +99,21 @@ fun VersionCatalogBuilder.kordLibs() {
             "kord-extensions"
         )
     )
+}
+
+fun VersionCatalogBuilder.databaseLibs() {
+    val postgresVersion = "4.25.0"
+    val exposedVersion = "0.39.2"
+
+    library("postgresql", "org.postgresql", "postgresql").version(postgresVersion)
+    library("exposed-core", "org.jetbrains.exposed", "exposed-core").version(exposedVersion)
+    library("exposed-kotlin-datetime", "org.jetbrains.exposed", "exposed-kotlin-datetime").version(exposedVersion)
+    library("exposed-jdbc", "org.jetbrains.exposed", "exposed-jdbc").version(exposedVersion)
+
+    bundle( "database-bundle", listOf(
+        "postgresql",
+        "exposed-core",
+        "exposed-kotlin-datetime",
+        "exposed-jdbc"
+    ))
 }

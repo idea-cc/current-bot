@@ -9,8 +9,6 @@ import com.kotlindiscord.kord.extensions.commands.converters.impl.optionalChanne
 import com.kotlindiscord.kord.extensions.extensions.Extension
 import com.kotlindiscord.kord.extensions.extensions.publicSlashCommand
 import dev.kord.common.entity.Permission
-import dev.kord.core.entity.channel.TextChannel
-import kotlinx.datetime.DateTimePeriod
 
 class SlowmodeCommand : Extension() {
     override val name: String = "slowmode"

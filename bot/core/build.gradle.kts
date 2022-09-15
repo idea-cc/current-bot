@@ -17,24 +17,23 @@ dependencies {
 
     implementation("ch.qos.logback:logback-classic:1.4.0")
     implementation("org.codehaus.groovy:groovy:3.0.12")
-    implementation("org.postgresql:postgresql:42.5.0")
-    implementation("org.jetbrains.exposed:exposed-core:0.39.2")
-    implementation("org.jetbrains.exposed:exposed-kotlin-datetime:0.39.2")
-    implementation("org.jetbrains.exposed:exposed-jdbc:0.39.2")
 
     implementation(libs.bundles.kotlinLibs.bundle)
     implementation(libs.bundles.ktor.bundle)
     implementation(libs.bundles.kordLibs.bundle)
+    implementation(libs.bundles.database.bundle)
 }
 
 tasks {
     "compileKotlin"(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class) {
         kotlinOptions {
             jvmTarget = "17"
-            kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
-            kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.contracts.ExperimentalContracts"
-            kotlinOptions.freeCompilerArgs += "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
-            kotlinOptions.freeCompilerArgs += "-opt-in=kotlinx.serialization.InternalSerializationApi"
+            freeCompilerArgs = listOf(
+                "-opt-in=kotlin.RequiresOptIn",
+                "-opt-in=kotlin.contracts.ExperimentalContracts",
+                "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
+                "-opt-in=kotlinx.serialization.InternalSerializationApi"
+            )
         }
     }
     "compileJava"(JavaCompile::class) {

@@ -21,10 +21,12 @@ tasks {
     "compileKotlin"(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class) {
         kotlinOptions {
             jvmTarget = "17"
-            kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
-            kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.contracts.ExperimentalContracts"
-            kotlinOptions.freeCompilerArgs += "-opt-in=kotlinx.serialization.ExperimentalSerializationApi"
-            kotlinOptions.freeCompilerArgs += "-opt-in=kotlinx.serialization.InternalSerializationApi"
+            freeCompilerArgs = listOf(
+                "-opt-in=kotlin.RequiresOptIn",
+                "-opt-in=kotlin.contracts.ExperimentalContracts",
+                "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
+                "-opt-in=kotlinx.serialization.InternalSerializationApi"
+            )
         }
     }
     "compileJava"(JavaCompile::class) {
