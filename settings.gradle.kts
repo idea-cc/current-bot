@@ -102,7 +102,7 @@ fun VersionCatalogBuilder.kordLibs() {
 }
 
 fun VersionCatalogBuilder.databaseLibs() {
-    val postgresVersion = "4.25.0"
+    val postgresVersion = "42.5.0"
     val exposedVersion = "0.39.2"
 
     library("postgresql", "org.postgresql", "postgresql").version(postgresVersion)
