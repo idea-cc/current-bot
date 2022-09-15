@@ -89,14 +89,14 @@ fun VersionCatalogBuilder.kotlinLibs() {
 
 fun VersionCatalogBuilder.kordLibs() {
     val kordVersion = "0.8.x-SNAPSHOT"
-    val kordexVersion = "1.5.5-SNAPSHOT"
+    val interaktionsVersion = "0.0.17-SNAPSHOT"
 
     library("kord-core", "dev.kord", "kord-core").version(kordVersion)
-    library("kord-extensions", "com.kotlindiscord.kord.extensions", "kord-extensions").version(kordexVersion)
+    library("gateway-kord", "net.perfectdreams.discordinteraktions", "gateway-kord").version(interaktionsVersion)
 
     bundle("kordLibs-bundle", listOf(
             "kord-core",
-            "kord-extensions"
+            "gateway-kord"
         )
     )
 }
