@@ -1,8 +1,16 @@
 package live.shuuyu.miu.core
 
-class MiuCore(token: String) {
+import kotlinx.coroutines.runBlocking
+import java.io.File
 
-    companion object {
-        const val APPLICATION_ID = "1008110839376646304"
+object MiuCore {
+    suspend fun launch() {
+        runBlocking {
+            val env = File(".env").readText()
+        }
     }
+}
+
+suspend fun main() {
+    MiuCore.launch()
 }

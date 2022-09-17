@@ -15,7 +15,7 @@ pluginManagement {
 rootProject.name = "Miu"
 
 include(":bot:commands")
-include(":bot:common")
+include(":bot:utils")
 include(":bot:core")
 include(":bot:database")
 include(":bot:phishing")
@@ -89,7 +89,7 @@ fun VersionCatalogBuilder.kotlinLibs() {
 
 fun VersionCatalogBuilder.kordLibs() {
     val kordVersion = "0.8.x-SNAPSHOT"
-    val interaktionsVersion = "0.0.17-SNAPSHOT"
+    val interaktionsVersion = "0.0.17-20220915.223922-13"
 
     library("kord-core", "dev.kord", "kord-core").version(kordVersion)
     library("gateway-kord", "net.perfectdreams.discordinteraktions", "gateway-kord").version(interaktionsVersion)

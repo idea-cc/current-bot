@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
     implementation(project(":bot:commands"))
-    implementation(project(":bot:common"))
+    implementation(project(":bot:utils"))
     implementation(project(":bot:database"))
     implementation(project(":bot:phishing"))
 

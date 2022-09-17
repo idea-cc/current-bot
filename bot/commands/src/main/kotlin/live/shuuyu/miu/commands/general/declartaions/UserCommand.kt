@@ -4,7 +4,10 @@ import live.shuuyu.miu.commands.general.UserExecutor
 import net.perfectdreams.discordinteraktions.common.commands.*
 
 class UserCommand : SlashCommandDeclarationWrapper {
-    override fun declaration() = slashCommand("user", "Looks up a user.") {
+    override fun declaration() = slashCommand(
+        "user",
+        "Looks up a user."
+    ) {
         executor = UserExecutor()
     }
 }

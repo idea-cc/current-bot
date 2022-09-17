@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":bot:common"))
+    implementation(project(":bot:utils"))
 
     implementation(libs.bundles.kotlinLibs.bundle)
     implementation(libs.bundles.ktor.bundle)
