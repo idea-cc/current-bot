@@ -1,9 +1,15 @@
 package live.shuuyu.miu.commands.moderation
 
+import dev.kord.core.behavior.ban
+import dev.kord.core.entity.Guild
+import dev.kord.core.supplier.EntitySupplyStrategy
 import kotlinx.datetime.Clock
 import net.perfectdreams.discordinteraktions.common.builder.message.embed
 import net.perfectdreams.discordinteraktions.common.commands.*
 import net.perfectdreams.discordinteraktions.common.commands.options.*
+import kotlin.time.Duration.Companion.days
+import kotlin.time.ExperimentalTime
+import kotlin.time.days
 
 class BanExecutor : SlashCommandExecutor() {
     inner class Options : ApplicationCommandOptions() {
