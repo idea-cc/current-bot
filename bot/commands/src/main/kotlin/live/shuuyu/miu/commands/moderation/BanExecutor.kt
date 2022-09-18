@@ -26,6 +26,10 @@ class BanExecutor : SlashCommandExecutor() {
         context.sendMessage {
             embed {
                 timestamp = Clock.System.now()
+
+                footer {
+                    text = "Licensed under the LGPL-3.0 license."
+                }
             }
         }
     }

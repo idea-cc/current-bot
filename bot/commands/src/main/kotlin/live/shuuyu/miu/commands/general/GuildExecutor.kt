@@ -7,6 +7,7 @@ import net.perfectdreams.discordinteraktions.common.commands.options.*
 
 class GuildExecutor : SlashCommandExecutor() {
     override suspend fun execute(context: ApplicationCommandContext, args: SlashCommandArguments) {
+
         context.sendMessage {
             embed {
                 timestamp = Clock.System.now()

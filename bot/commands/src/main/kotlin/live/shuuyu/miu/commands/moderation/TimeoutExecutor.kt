@@ -1,5 +1,7 @@
 package live.shuuyu.miu.commands.moderation
 
+import dev.kord.common.entity.ApplicationCommandOptionType
+import dev.kord.core.entity.Guild
 import kotlinx.datetime.Clock
 import net.perfectdreams.discordinteraktions.common.builder.message.*
 import net.perfectdreams.discordinteraktions.common.commands.*
@@ -25,7 +27,5 @@ class TimeoutExecutor : SlashCommandExecutor() {
                 timestamp = Clock.System.now()
             }
         }
-
-
     }
 }
