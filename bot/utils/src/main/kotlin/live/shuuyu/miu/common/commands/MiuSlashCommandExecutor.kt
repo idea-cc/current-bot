@@ -1,6 +1,7 @@
 package live.shuuyu.miu.common.commands
 
 import dev.kord.common.entity.Snowflake
+import dev.kord.core.entity.Guild
 import mu.KotlinLogging
 import net.perfectdreams.discordinteraktions.common.commands.*
 import net.perfectdreams.discordinteraktions.common.commands.options.SlashCommandArguments
@@ -26,7 +27,8 @@ abstract class MiuSlashCommandExecutor : SlashCommandExecutor() {
         executorClazzName: String,
         context: ApplicationCommandContext,
         args: SlashCommandArguments,
-        guildId: Snowflake?
+        guildId: Snowflake?,
+        guild: Guild
     ) {
 
     }
