@@ -15,7 +15,7 @@ class KickExecutor : SlashCommandExecutor() {
 
     override suspend fun execute(context: ApplicationCommandContext, args: SlashCommandArguments) {
         val target = args[options.user]
-        val reason = args[options.reason]
+        val reason = args[options.reason] ?: "No reason provided."
 
         context.sendMessage {
             embed {

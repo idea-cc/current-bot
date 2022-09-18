@@ -6,13 +6,11 @@ import mu.KotlinLogging
 import net.perfectdreams.discordinteraktions.common.commands.*
 import net.perfectdreams.discordinteraktions.common.entities.messages.Message
 
-abstract class MiuUserCommandExecutor : UserCommandExecutor() {
+abstract class MiuUserCommandExecutor() : UserCommandExecutor() {
     companion object {
         private val logger = KotlinLogging.logger {}
     }
-
-    // TODO: Fix this because it brokey
-    /*
+/*
     abstract suspend fun execute(
         context: UserCommandExecutor,
         user: User,
@@ -26,7 +24,8 @@ abstract class MiuUserCommandExecutor : UserCommandExecutor() {
     ) {
         logger.info {  }
     }
-     */
+
+ */
 
     private suspend fun executeCommand(
         rootDeclarationClazzName: String,

@@ -6,6 +6,8 @@ import net.perfectdreams.discordinteraktions.common.commands.options.SlashComman
 
 class TestCommand : MiuSlashCommandExecutor() {
     override suspend fun execute(context: GuildApplicationCommandContext, args: SlashCommandArguments) {
+        context.sendMessage {
 
+        }
     }
 }

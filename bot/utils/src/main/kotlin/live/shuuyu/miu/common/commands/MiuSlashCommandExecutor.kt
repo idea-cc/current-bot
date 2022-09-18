@@ -6,6 +6,11 @@ import mu.KotlinLogging
 import net.perfectdreams.discordinteraktions.common.commands.*
 import net.perfectdreams.discordinteraktions.common.commands.options.SlashCommandArguments
 
+/**
+ * A slash command abstraction. We use this for most of the moderation commands, as we rely on guild for the most part.
+ *
+ * @since 0.0.1
+ */
 abstract class MiuSlashCommandExecutor : SlashCommandExecutor() {
     companion object {
         private val logger = KotlinLogging.logger {}
