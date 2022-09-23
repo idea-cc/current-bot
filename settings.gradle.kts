@@ -14,11 +14,7 @@ pluginManagement {
 
 rootProject.name = "Miu"
 
-include(":bot:commands")
-include(":bot:utils")
-include(":bot:core")
-include(":bot:database")
-include(":bot:phishing")
+include(":bot")
 
 include(":microservices:statistics")
 
