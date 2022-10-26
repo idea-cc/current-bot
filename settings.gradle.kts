@@ -14,11 +14,7 @@ pluginManagement {
 
 rootProject.name = "Miu"
 
-include(":bot:commands")
-include(":bot:common")
-include(":bot:core")
-include(":bot:database")
-include(":bot:phishing")
+include(":bot")
 
 include(":microservices:statistics")
 
@@ -89,14 +85,14 @@ fun VersionCatalogBuilder.kotlinLibs() {
 
 fun VersionCatalogBuilder.kordLibs() {
     val kordVersion = "0.8.x-SNAPSHOT"
-    val kordexVersion = "1.5.5-SNAPSHOT"
+    val interaktionsVersion = "0.0.17-20220915.223922-13"
 
     library("kord-core", "dev.kord", "kord-core").version(kordVersion)
-    library("kord-extensions", "com.kotlindiscord.kord.extensions", "kord-extensions").version(kordexVersion)
+    library("gateway-kord", "net.perfectdreams.discordinteraktions", "gateway-kord").version(interaktionsVersion)
 
     bundle("kordLibs-bundle", listOf(
             "kord-core",
-            "kord-extensions"
+            "gateway-kord"
         )
     )
 }
